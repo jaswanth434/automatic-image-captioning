@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone project</title>
+    <!-- Inline styles moved to separate section for clarity -->
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <div class="background-container"></div>
+    <div class="content">
+      <h2 id="mainTitle">Welcome to the Dynamic Caption Generator!</h2>
+      <h3 id="subTitle">
+        Experience the Magic of AI - Upload Your Image Now and Watch Captions
+        Come to Life Instantly!
+      </h3>
+
+      <form id="uploadForm" enctype="multipart/form-data">
+        <input
+          type="file"
+          name="file"
+          id="fileInput"
+          accept="image/*"
+          style="display: none"
+          onchange="imageSelected()"
+        />
+        <div id="buttonContainer">
+          <button
+            type="button"
+            id="chooseButton"
+            onclick="document.getElementById('fileInput').click();"
+          >
+            Choose your image to generate caption
+          </button>
+          <span id="fileName" style="display: none"></span>
+          <div id="uploadChangeButtons" style="display: none">
+            <button type="button" onclick="uploadImage()">Upload</button>
+            <button type="button" onclick="changeImage()">Change Image</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="loader" class="caption-loader" style="display: none">
+        Generating Caption
+      </div>
+      <div id="responseContainer" style="display: none">
+        <p class="caption-title">Generated Caption:</p>
+        <p id="responseText" class="caption-response"></p>
+      </div>
+      <img
+        id="uploadedImage"
+        src="#"
+        alt="Uploaded Image"
+        style="display: none"
+      />
+    </div>
+
+    <!-- Externalized JavaScript for better maintenance -->
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>
